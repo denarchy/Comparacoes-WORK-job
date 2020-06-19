@@ -19,16 +19,17 @@ public class Main {
 
 		Locale.setDefault(Locale.US);
 
-		System.out.print("Enter the deparment name");
+		System.out.println("Enter the deparment name");
 		String departName = sc.nextLine();
 
 		System.out.print("Type the worker data");
+		System.out.print("Name: ");
 		String workerName = sc.nextLine();
 
-		System.out.print("Type the worker level");
+		System.out.print("Level: ");
 		String workerLevel = sc.nextLine();
 
-		System.out.print("Type the worker salary");
+		System.out.print("Salary: ");
 		double workerSalary = sc.nextDouble();
 
 		Worker worker = new Worker(new Department(departName), workerName, WorkerLevel.valueOf(workerLevel),
@@ -46,11 +47,18 @@ public class Main {
 			System.out.print("Duration (hours) ");
 			int hours = sc.nextInt();
 			HourContract contract = new HourContract(contractDate, valuePerHour, hours);
-			worker.addContracts(contract); 
+			worker.addContracts(contract);
 		}
-		
-		
+		System.out.println();
+		System.out.print("Enter the month and year to calculate the salary");
+		String monthAndYear = sc.next();
+		int month = Integer.parseInt(monthAndYear.substring(0, 1));
+		int year = Integer.parseInt(monthAndYear.substring(3));
+		System.out.println("Name" + worker.getName());
+		System.out.println("Department " + worker.getDepartment().getName());
+		System.out.println("Income for " + monthAndYear + ": " + worker.Income(year, month));
 
+		sc.close();
 	}
 
 }

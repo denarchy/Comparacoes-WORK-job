@@ -17,7 +17,7 @@ public class Worker {
 	public Worker() {
 		
 	}
-
+	
 	public Worker(Department department, String name, WorkerLevel level, double baseSalary) {
 		this.name = name;
 		this.level = level;
